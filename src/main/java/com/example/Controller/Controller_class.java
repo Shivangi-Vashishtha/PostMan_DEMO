@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Payments.GetPaymentDtls;
+
 @RestController
 @RequestMapping("/api/student/")
 
@@ -16,10 +18,16 @@ public class Controller_class {
 	String appName;
 	
 	@GetMapping("/get")
-	public String getDetails()
+	/*public String getDetails()
 	{
 		//return "Hello WORLD--SHIVANGI IS HERE"; // example of simple print
 		return appName;
+	}*/
+	
+	public GetPaymentDtls getDetails()
+	{
+		GetPaymentDtls paymentDtls=new GetPaymentDtls(2300,"1500025","Shivangi");
+		return paymentDtls;
 	}
 
 }
