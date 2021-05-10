@@ -13,17 +13,17 @@ import com.example.Payments.GetPaymentDtls;
 
 public class Controller_class {
 	
-	@Value("${app.name}")//can use  @value--> app.name is define in application.properties with value
+	//@Value("${app.name:SHIVANGI}")//can use  @value--> app.name is define in application.properties with value
 	//@Value("${app.name:HI SHIVANGI}")	//can use --> can give value to app.name in @value itself
-	String appName;
+	//String appName;
 	
-	@GetMapping("/get")
+	//@GetMapping("/get")
 	/*public String getDetails()
 	{
 		//return "Hello WORLD--SHIVANGI IS HERE"; // example of simple print
 		return appName;
 	}*/
-	
+	@GetMapping("/get")
 	public GetPaymentDtls getDetails()
 	{
 		GetPaymentDtls paymentDtls=new GetPaymentDtls(2300,"1500025","Shivangi");
