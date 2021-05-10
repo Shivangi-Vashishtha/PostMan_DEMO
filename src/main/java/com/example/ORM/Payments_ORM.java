@@ -18,7 +18,7 @@ public class Payments_ORM {
 	@Id  // to tell that this is used to identigy each record uniquly.mandatory else spring toll will not work
 	@GeneratedValue // to specify that this is auto incremeted value and we are not handling this
 	@Column(name="payment_id")
-	int payment_id;
+	Long payment_id;
 	
 	@Column(name="ben_name")
 	String ben_name;
