@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.example.ORM.Payments_ORM;
 import com.example.repository.Payments_ORM_Repository;
@@ -89,6 +90,13 @@ public class Payments_Service {
 	{
 		Pageable  pageable = PageRequest.of(pageNO-1, pageSize);
 		return paymentRepository.findAll(pageable).getContent();
+		
+	}
+	
+	public List<Payments_ORM> getSortedData()
+	{
+		Sort sort =Sort.by(Sort.Direction.DESC, "benName");
+		return paymentRepository.findAll(sort);
 		
 	}
 	
