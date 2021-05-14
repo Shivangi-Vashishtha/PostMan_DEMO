@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.ORM.Payments_ORM;
 import com.example.repository.Payments_ORM_Repository;
 import com.example.request_POST.CreatePaymentDetails;
+import com.example.request_POST.UpdatePayment;
 
 
 
@@ -29,5 +30,30 @@ public class Payments_Service {
 		payments_ORM=paymentRepository.save(payments_ORM);
 		return payments_ORM;
 	}
+	
+	public Payments_ORM updateStudent(UpdatePayment updatePayment)
+	{
+		
+		Payments_ORM payments_ORM=paymentRepository.findById(updatePayment.getPayment_id()).get();
+		
+		if(updatePayment.getBen_account() !=null && !updatePayment.getBen_account().isEmpty())
+		{
+			payments_ORM.setBen_account(updatePayment.getBen_account());
+		}
+		
+		if(updatePayment.getBen_name() !=null && !updatePayment.getBen_name().isEmpty())
+		{
+			payments_ORM.setBen_name(updatePayment.getBen_name());
+		}
+		
+		if(updatePayment.getAmount() !=0)
+		{
+			payments_ORM.setAmount(updatePayment.getAmount());
+		}
+		payments_ORM=paymentRepository.save(payments_ORM);
+		return payments_ORM;
+	}
+	
+	
 
 }

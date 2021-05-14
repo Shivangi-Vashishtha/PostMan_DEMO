@@ -1,5 +1,13 @@
 package com.example.request_POST;
 
+
+
+
+
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.validation.annotation.Validated;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +23,6 @@ public class CreatePaymentDetails {
 	
 	String ben_account;
 	
-	
+	@NotBlank(message = "Amount is required")
 	float amount;
 }

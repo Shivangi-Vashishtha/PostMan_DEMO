@@ -2,10 +2,13 @@ package com.example.Controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +19,7 @@ import com.example.Payments.GetPaymentDtls;
 import com.example.Response.Payments_response;
 import com.example.repository.Payments_ORM_Repository;
 import com.example.request_POST.CreatePaymentDetails;
+import com.example.request_POST.UpdatePayment;
 import com.example.service.Payments_Service;
 
 @RestController
@@ -53,12 +57,26 @@ public class Controller_class {
 	Payments_Service payments_services;
 	
 	@PostMapping("CreatePayment")
-	public  Payments_response createPayment(@RequestBody CreatePaymentDetails createPaymentDetails)
+	public  Payments_response createPayment(@Valid @RequestBody CreatePaymentDetails createPaymentDetails)
 	{
+		//@Vaild  --> annotation used to validate attributes passed in JSON(mandatory attributes)
 		//@RequestBody is used to convert JSON input which is coming to as class attributes for mapping
 		Payments_ORM po=payments_services.createPayment(createPaymentDetails);
 		return new Payments_response(po);
 		
 	}
+	
+	
+	
+	@PutMapping("Update")
+	public Payments_response updateStudent(@Valid @RequestBody UpdatePayment updatePayment)
+	{
+		Payments_ORM po=payments_services.updateStudent(updatePayment);
+		return new Payments_response(po);
+		
+	}
+	
+	
+	
 
 }
