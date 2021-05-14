@@ -41,9 +41,9 @@ public class Payments_Service {
 			payments_ORM.setBenAccount(updatePayment.getBenAccount());
 		}
 		
-		if(updatePayment.getBen_name() !=null && !updatePayment.getBen_name().isEmpty())
+		if(updatePayment.getBenName() !=null && !updatePayment.getBenName().isEmpty())
 		{
-			payments_ORM.setBen_name(updatePayment.getBen_name());
+			payments_ORM.setBenName(updatePayment.getBenName());
 		}
 		
 		if(updatePayment.getAmount() !=0)
@@ -64,6 +64,16 @@ public class Payments_Service {
 	public List<Payments_ORM> getAccount(String ben_account)
 	{
 		return paymentRepository.findByBenAccount(ben_account); 
+	}
+	
+	public List<Payments_ORM> getAccountAndName(String ben_account,String ben_name)
+	{
+		return paymentRepository.findByBenAccountAndBenName(ben_account,ben_name); 
+	}
+	
+	public List<Payments_ORM> getAccountORName(String ben_account,String ben_name)
+	{
+		return paymentRepository.findByBenAccountOrBenName(ben_account,ben_name); 
 	}
 	
 	

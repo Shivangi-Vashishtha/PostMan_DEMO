@@ -18,7 +18,7 @@ public class CreatePaymentDetails {
 	
 	Long payment_id;
 	
-	String ben_name;
+	String benName;
 	
 	
 	String benAccount;

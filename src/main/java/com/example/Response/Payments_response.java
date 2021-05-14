@@ -13,7 +13,7 @@ public class Payments_response {
 	private long payment_id;
 
 	@JsonProperty("first_name")
-	private String ben_name;
+	private String benName;
 
 	private String benAccount;
 
@@ -21,7 +21,7 @@ public class Payments_response {
 	
 	public	 Payments_response (Payments_ORM po) {
 		this.payment_id=po.getPayment_id();
-		this.ben_name = po.getBen_name();
+		this.benName = po.getBenName();
 		this.benAccount = po.getBenAccount();
 		this.amount = po.getAmount();
 	}

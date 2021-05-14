@@ -109,4 +109,35 @@ public class Controller_class {
 		
 		return responseList;
    }
+   
+   
+   
+   @GetMapping("Get/{ben_account}/{ben_name}")
+   public List<Payments_response> getAccountAndName(@PathVariable String ben_account,@PathVariable String ben_name)
+   {
+	   List<Payments_ORM> list = payments_services.getAccountAndName(ben_account,ben_name);
+	   List<Payments_response> responseList = new ArrayList<Payments_response>();
+		
+	   list.stream().forEach(Payments_ORM -> {
+		   responseList.add(new Payments_response(Payments_ORM));
+		});
+		
+		return responseList;
+   }
+   
+   @GetMapping("GetOptional/{ben_account}/{ben_name}")
+   public List<Payments_response> getAccountORName(@PathVariable String ben_account,@PathVariable String ben_name)
+   {
+	   List<Payments_ORM> list = payments_services.getAccountORName(ben_account,ben_name);
+	   List<Payments_response> responseList = new ArrayList<Payments_response>();
+		
+	   list.stream().forEach(Payments_ORM -> {
+		   responseList.add(new Payments_response(Payments_ORM));
+		});
+		
+		return responseList;
+   }
+   
+   
+   
 }

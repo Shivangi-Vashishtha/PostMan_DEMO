@@ -11,7 +11,7 @@ public class UpdatePayment {
 @NotNull(message = "Payment ID is mandatory")	
 Long payment_id;
 	
-	String ben_name;
+	String benName;
 	
 	
 	String benAccount;

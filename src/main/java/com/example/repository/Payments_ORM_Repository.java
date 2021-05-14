@@ -18,5 +18,7 @@ import java.lang.String;
 public interface Payments_ORM_Repository extends JpaRepository<Payments_ORM, Long > {
 	
 List<Payments_ORM> findByBenAccount(String benAccount);
+List<Payments_ORM> findByBenAccountAndBenName(String benAccount,String benName);
+List<Payments_ORM> findByBenAccountOrBenName(String benAccount,String benName);
 	
 }

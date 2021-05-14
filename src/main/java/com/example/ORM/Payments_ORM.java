@@ -28,8 +28,8 @@ public class Payments_ORM {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long payment_id;
 	
-	@Column(name="ben_name")
-	String ben_name;
+	@Column(name="benName")
+	String benName;
 	
 	@Column(name="benAccount")
 	String benAccount;
@@ -40,7 +40,7 @@ public class Payments_ORM {
 	public Payments_ORM(CreatePaymentDetails createPaymentDetails)
 	{
 		this.payment_id=createPaymentDetails.getPayment_id();
-		this.ben_name=createPaymentDetails.getBen_name();
+		this.benName=createPaymentDetails.getBenName();
 		this.benAccount=createPaymentDetails.getBenAccount();
 		this.amount=createPaymentDetails.getAmount();
 	}
