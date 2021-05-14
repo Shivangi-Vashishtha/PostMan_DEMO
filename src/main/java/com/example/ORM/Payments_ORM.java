@@ -13,11 +13,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 @Entity  // use for telling that Payments_ORM is mapped to ORM
 @Table(name="Payments_ORM") // used to tell the table name which is related with ORM
+@Getter
+@Setter
 public class Payments_ORM {
 	
 	
@@ -30,8 +31,8 @@ public class Payments_ORM {
 	@Column(name="ben_name")
 	String ben_name;
 	
-	@Column(name="ben_account")
-	String ben_account;
+	@Column(name="benAccount")
+	String benAccount;
 	
 	@Column(name="amount")
 	float amount;
@@ -40,8 +41,12 @@ public class Payments_ORM {
 	{
 		this.payment_id=createPaymentDetails.getPayment_id();
 		this.ben_name=createPaymentDetails.getBen_name();
-		this.ben_account=createPaymentDetails.getBen_account();
+		this.benAccount=createPaymentDetails.getBenAccount();
 		this.amount=createPaymentDetails.getAmount();
 	}
+
+	
+
+	
 
 }

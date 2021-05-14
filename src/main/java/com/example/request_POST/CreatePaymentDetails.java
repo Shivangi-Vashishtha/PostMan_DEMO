@@ -21,8 +21,8 @@ public class CreatePaymentDetails {
 	String ben_name;
 	
 	
-	String ben_account;
+	String benAccount;
 	
-	@NotBlank(message = "Amount is required")
+	//@NotBlank(message = "Amount is required")
 	float amount;
 }

@@ -15,14 +15,14 @@ public class Payments_response {
 	@JsonProperty("first_name")
 	private String ben_name;
 
-	private String ben_account;
+	private String benAccount;
 
 	private float amount;
 	
 	public	 Payments_response (Payments_ORM po) {
 		this.payment_id=po.getPayment_id();
 		this.ben_name = po.getBen_name();
-		this.ben_account = po.getBen_account();
+		this.benAccount = po.getBenAccount();
 		this.amount = po.getAmount();
 	}
 

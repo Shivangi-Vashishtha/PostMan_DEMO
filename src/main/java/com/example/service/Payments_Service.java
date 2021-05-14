@@ -36,9 +36,9 @@ public class Payments_Service {
 		
 		Payments_ORM payments_ORM=paymentRepository.findById(updatePayment.getPayment_id()).get();
 		
-		if(updatePayment.getBen_account() !=null && !updatePayment.getBen_account().isEmpty())
+		if(updatePayment.getBenAccount() !=null && !updatePayment.getBenAccount().isEmpty())
 		{
-			payments_ORM.setBen_account(updatePayment.getBen_account());
+			payments_ORM.setBenAccount(updatePayment.getBenAccount());
 		}
 		
 		if(updatePayment.getBen_name() !=null && !updatePayment.getBen_name().isEmpty())
@@ -60,6 +60,13 @@ public class Payments_Service {
 		paymentRepository.deleteById(payment_id);
 		return "Payment deleted successfully";
 	}
+	
+	public List<Payments_ORM> getAccount(String ben_account)
+	{
+		return paymentRepository.findByBenAccount(ben_account); 
+	}
+	
+	
 	
 	
 

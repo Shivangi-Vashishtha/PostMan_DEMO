@@ -1,5 +1,6 @@
 package com.example.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -95,4 +96,17 @@ public class Controller_class {
 	{
 		return payments_services.deletePayment(payment_id);
 	}
+   
+   @GetMapping("Get/{ben_account}")
+   public List<Payments_response> getAccount(@PathVariable String ben_account)
+   {
+	   List<Payments_ORM> list = payments_services.getAccount(ben_account);
+	   List<Payments_response> responseList = new ArrayList<Payments_response>();
+		
+	   list.stream().forEach(Payments_ORM -> {
+		   responseList.add(new Payments_response(Payments_ORM));
+		});
+		
+		return responseList;
+   }
 }

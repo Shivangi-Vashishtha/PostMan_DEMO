@@ -14,7 +14,7 @@ Long payment_id;
 	String ben_name;
 	
 	
-	String ben_account;
+	String benAccount;
 	
 	
 	float amount;
