@@ -37,6 +37,8 @@ public class GetPaymentDtls {
 	 // to ignore a particular field when printing in JSON form
 	private String benAccount;
 	
+	
+	
 	@JsonProperty("Beneficiary_name") //  to name a particular field which showing in JSON form
 	private String benName;
 
