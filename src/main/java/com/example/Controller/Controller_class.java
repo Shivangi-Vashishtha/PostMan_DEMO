@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,11 +81,18 @@ public class Controller_class {
 	
 	//http://localhost:8081/api/student/Delete?payment_id=4-->url then "?" then attribute name which identify record uniquely
 	// @RequestParam --> annotation used to pass primary key in url itself.
-	@DeleteMapping("Delete")
+	/*@DeleteMapping("Delete")
 	public String deletePayment(@RequestParam Long payment_id)
 	{
 		return payments_services.deletePayment(payment_id);
-	}
+	}*/	
 	
-
+	
+	// http://localhost:8081/api/student/Delete/5  --> 5 is payment id after url
+//	@pathVariable--> used when we give primary key after "/" itself.
+   @DeleteMapping("Delete/{payment_id}")
+   public String deletePayment(@PathVariable Long payment_id)
+	{
+		return payments_services.deletePayment(payment_id);
+	}
 }
