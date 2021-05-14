@@ -5,6 +5,8 @@ package com.example.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.example.ORM.Payments_ORM;
 import com.example.repository.Payments_ORM_Repository;
@@ -81,6 +83,13 @@ public class Payments_Service {
 	public List<Payments_ORM> getWithINClause(InClause inClause)
 	{
 		return paymentRepository.findByBenNameIn(inClause.getBenNames()); 
+	}
+	
+	public List<Payments_ORM> getPagination(int pageNO, int pageSize)
+	{
+		Pageable  pageable = PageRequest.of(pageNO-1, pageSize);
+		return paymentRepository.findAll(pageable).getContent();
+		
 	}
 	
 	

@@ -153,4 +153,17 @@ public class Controller_class {
 		return responseList;
    }
    
+   @GetMapping("GetPagination")
+   public List<Payments_response> getPagination(@RequestParam int pageNO,@RequestParam int pageSize)
+   {
+	   List<Payments_ORM> list = payments_services.getPagination(pageNO,pageSize);
+	   List<Payments_response> responseList = new ArrayList<Payments_response>();
+		
+	   list.stream().forEach(Payments_ORM -> {
+		   responseList.add(new Payments_response(Payments_ORM));
+		});
+		
+		return responseList;
+   }
+   
 }
