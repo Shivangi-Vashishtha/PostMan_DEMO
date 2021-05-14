@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ORM.Payments_ORM;
@@ -22,6 +23,7 @@ import com.example.Payments.GetPaymentDtls;
 import com.example.Response.Payments_response;
 import com.example.repository.Payments_ORM_Repository;
 import com.example.request_POST.CreatePaymentDetails;
+import com.example.request_POST.InClause;
 import com.example.request_POST.UpdatePayment;
 import com.example.service.Payments_Service;
 
@@ -138,6 +140,17 @@ public class Controller_class {
 		return responseList;
    }
    
-   
+   @GetMapping("GetWithINClause")
+   public List<Payments_response> getWithINClause(@RequestBody InClause   inClause)
+   {
+	   List<Payments_ORM> list = payments_services.getWithINClause(inClause);
+	   List<Payments_response> responseList = new ArrayList<Payments_response>();
+		
+	   list.stream().forEach(Payments_ORM -> {
+		   responseList.add(new Payments_response(Payments_ORM));
+		});
+		
+		return responseList;
+   }
    
 }

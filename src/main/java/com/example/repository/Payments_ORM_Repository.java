@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.ORM.Payments_ORM;
+import com.example.request_POST.InClause;
 import com.sun.xml.bind.v2.model.core.ID;
 import java.lang.String;
 
@@ -20,5 +21,5 @@ public interface Payments_ORM_Repository extends JpaRepository<Payments_ORM, Lon
 List<Payments_ORM> findByBenAccount(String benAccount);
 List<Payments_ORM> findByBenAccountAndBenName(String benAccount,String benName);
 List<Payments_ORM> findByBenAccountOrBenName(String benAccount,String benName);
-	
+List<Payments_ORM> findByBenNameIn (List<String> benNames);
 }

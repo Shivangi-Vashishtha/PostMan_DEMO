@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.ORM.Payments_ORM;
 import com.example.repository.Payments_ORM_Repository;
 import com.example.request_POST.CreatePaymentDetails;
+import com.example.request_POST.InClause;
 import com.example.request_POST.UpdatePayment;
 
 
@@ -74,6 +75,12 @@ public class Payments_Service {
 	public List<Payments_ORM> getAccountORName(String ben_account,String ben_name)
 	{
 		return paymentRepository.findByBenAccountOrBenName(ben_account,ben_name); 
+	}
+	
+	
+	public List<Payments_ORM> getWithINClause(InClause inClause)
+	{
+		return paymentRepository.findByBenNameIn(inClause.getBenNames()); 
 	}
 	
 	
