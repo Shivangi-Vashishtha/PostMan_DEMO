@@ -6,12 +6,13 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ORM.Payments_ORM;
@@ -77,6 +78,13 @@ public class Controller_class {
 	}
 	
 	
+	//http://localhost:8081/api/student/Delete?payment_id=4-->url then "?" then attribute name which identify record uniquely
+	// @RequestParam --> annotation used to pass primary key in url itself.
+	@DeleteMapping("Delete")
+	public String deletePayment(@RequestParam Long payment_id)
+	{
+		return payments_services.deletePayment(payment_id);
+	}
 	
 
 }

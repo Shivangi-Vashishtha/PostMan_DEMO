@@ -55,5 +55,12 @@ public class Payments_Service {
 	}
 	
 	
+	public String deletePayment(Long payment_id)
+	{
+		paymentRepository.deleteById(payment_id);
+		return "Payment deleted successfully";
+	}
+	
+	
 
 }
