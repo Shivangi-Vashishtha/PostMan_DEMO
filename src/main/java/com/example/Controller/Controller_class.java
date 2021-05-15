@@ -113,6 +113,19 @@ public class Controller_class {
 		return responseList;
    }
    
+   @GetMapping("Get/{city}")
+   public List<Payments_response> getByCity(@PathVariable String city)
+   {
+	   List<Payments_ORM> list = payments_services.getByCity(city);
+	   List<Payments_response> responseList = new ArrayList<Payments_response>();
+		
+	   list.stream().forEach(Payments_ORM -> {
+		   responseList.add(new Payments_response(Payments_ORM));
+		});
+		
+		return responseList;
+   }
+   
    
    
    @GetMapping("Get/{ben_account}/{ben_name}")

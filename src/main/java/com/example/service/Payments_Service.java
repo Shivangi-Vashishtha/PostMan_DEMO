@@ -39,7 +39,7 @@ public class Payments_Service {
 		Payments_ORM payments_ORM=new Payments_ORM(createPaymentDetails);
 		Address address = new Address();
 		address.setCity(createPaymentDetails.getCity());
-		address.setCity(createPaymentDetails.getStreet());
+		address.setStreet(createPaymentDetails.getStreet());
 		payments_ORM.setAddress(address);
 		address=addressRepository.save(address);
 		payments_ORM=paymentRepository.save(payments_ORM);
@@ -112,6 +112,11 @@ public class Payments_Service {
 		//Sort sort =Sort.by(Sort.Direction.DESC, "benName","benAccount");--> can pass multiple attributes
 		return paymentRepository.findAll(sort);
 		
+	}
+	
+	public List<Payments_ORM> getByCity(String city)
+	{
+		return paymentRepository.findByAddressId(city); 
 	}
 	
 	

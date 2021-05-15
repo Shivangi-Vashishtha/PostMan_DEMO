@@ -26,4 +26,6 @@ List<Payments_ORM> findByBenNameIn (List<String> benNames);
 
 @Query("from Payments_ORM where ben_name=:benName and ben_Account= :benAccount" )
 List<Payments_ORM> getByBenAccountAndBenName(String benAccount,String benName);
+
+List<Payments_ORM> findByAddressId(String city);
 }
