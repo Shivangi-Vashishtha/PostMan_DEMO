@@ -113,7 +113,7 @@ public class Controller_class {
 		return responseList;
    }
    
-   @GetMapping("Get/{city}")
+   @GetMapping("GetByCity/{city}")
    public List<Payments_response> getByCity(@PathVariable String city)
    {
 	   List<Payments_ORM> list = payments_services.getByCity(city);

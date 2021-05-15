@@ -116,7 +116,9 @@ public class Payments_Service {
 	
 	public List<Payments_ORM> getByCity(String city)
 	{
-		return paymentRepository.findByAddressId(city); 
+		//return paymentRepository.findByAddressCity(city); 
+		return paymentRepository.getByAddressCity(city); 
+		
 	}
 	
 	
