@@ -9,7 +9,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import com.example.ORM.Address;
 import com.example.ORM.Payments_ORM;
+import com.example.repository.AddressRepository;
 import com.example.repository.Payments_ORM_Repository;
 import com.example.request_POST.CreatePaymentDetails;
 import com.example.request_POST.InClause;
@@ -23,6 +26,9 @@ public class Payments_Service {
 	@Autowired
 	Payments_ORM_Repository paymentRepository;
 	
+	@Autowired
+	AddressRepository addressRepository;
+	
 	public List<Payments_ORM> getPayments()
 	{
 		return paymentRepository.findAll();
@@ -31,6 +37,11 @@ public class Payments_Service {
 	public Payments_ORM createPayment(CreatePaymentDetails createPaymentDetails)
 	{
 		Payments_ORM payments_ORM=new Payments_ORM(createPaymentDetails);
+		Address address = new Address();
+		address.setCity(createPaymentDetails.getCity());
+		address.setCity(createPaymentDetails.getStreet());
+		payments_ORM.setAddress(address);
+		address=addressRepository.save(address);
 		payments_ORM=paymentRepository.save(payments_ORM);
 		return payments_ORM;
 	}

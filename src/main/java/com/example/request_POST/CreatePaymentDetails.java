@@ -25,4 +25,8 @@ public class CreatePaymentDetails {
 	
 	//@NotBlank(message = "Amount is required")
 	float amount;
+	
+	 String street;
+
+	 String city;
 }

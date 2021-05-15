@@ -24,12 +24,18 @@ public class Payments_response {
 	
 	String benDetails;
 	
+	String street;
+	String city;
+	
 	public	 Payments_response (Payments_ORM po) {
 		this.payment_id=po.getPayment_id();
 		this.benName = po.getBenName();
 		this.benAccount = po.getBenAccount();
 		this.amount = po.getAmount();
 		this.benDetails=po.getBenName() + " " + po.getBenAccount();
+		
+		this.street=po.getAddress().getStreet(); //getAddress--> address is another entity and we can get street from thr.
+		this.city=po.getAddress().getCity();
 	}
 
 }
