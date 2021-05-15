@@ -72,7 +72,9 @@ public class Payments_Service {
 	
 	public List<Payments_ORM> getAccountAndName(String ben_account,String ben_name)
 	{
-		return paymentRepository.findByBenAccountAndBenName(ben_account,ben_name); 
+		//return paymentRepository.findByBenAccountAndBenName(ben_account,ben_name); 
+		
+		return paymentRepository.getByBenAccountAndBenName(ben_account,ben_name);
 	}
 	
 	public List<Payments_ORM> getAccountORName(String ben_account,String ben_name)
@@ -96,6 +98,7 @@ public class Payments_Service {
 	public List<Payments_ORM> getSortedData()
 	{
 		Sort sort =Sort.by(Sort.Direction.DESC, "benName");
+		//Sort sort =Sort.by(Sort.Direction.DESC, "benName","benAccount");--> can pass multiple attributes
 		return paymentRepository.findAll(sort);
 		
 	}

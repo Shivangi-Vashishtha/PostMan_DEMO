@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.example.request_POST.CreatePaymentDetails;
 
@@ -37,12 +38,16 @@ public class Payments_ORM {
 	@Column(name="amount")
 	float amount;
 	
+	@Transient
+	String benDetails;
+	
 	public Payments_ORM(CreatePaymentDetails createPaymentDetails)
 	{
 		this.payment_id=createPaymentDetails.getPayment_id();
 		this.benName=createPaymentDetails.getBenName();
 		this.benAccount=createPaymentDetails.getBenAccount();
 		this.amount=createPaymentDetails.getAmount();
+		this.benDetails=createPaymentDetails.getBenName() + " " + createPaymentDetails.getBenAccount();
 	}
 
 	

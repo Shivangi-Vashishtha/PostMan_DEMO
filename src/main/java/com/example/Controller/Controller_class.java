@@ -52,6 +52,7 @@ public class Controller_class {
 	
 	@Autowired
 	Payments_ORM_Repository paymentRepository;
+	
 	@GetMapping("/getPaymentDetails")
 	public List<Payments_ORM> getPayments()
 	{

@@ -3,6 +3,7 @@ package com.example.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.ORM.Payments_ORM;
@@ -22,4 +23,7 @@ List<Payments_ORM> findByBenAccount(String benAccount);
 List<Payments_ORM> findByBenAccountAndBenName(String benAccount,String benName);
 List<Payments_ORM> findByBenAccountOrBenName(String benAccount,String benName);
 List<Payments_ORM> findByBenNameIn (List<String> benNames);
+
+@Query("from Payments_ORM where ben_name=:benName and ben_Account= :benAccount" )
+List<Payments_ORM> getByBenAccountAndBenName(String benAccount,String benName);
 }
