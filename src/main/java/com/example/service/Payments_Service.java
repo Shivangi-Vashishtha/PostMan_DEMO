@@ -96,7 +96,7 @@ public class Payments_Service {
 	
 	public List<Payments_ORM> getWithINClause(InClause inClause)
 	{
-		return paymentRepository.getByBenNameIn(inClause.getBenNames()); 
+		return paymentRepository.findByBenNameIn(inClause.getBenNames()); 
 	}
 	
 	public List<Payments_ORM> getPagination(int pageNO, int pageSize)

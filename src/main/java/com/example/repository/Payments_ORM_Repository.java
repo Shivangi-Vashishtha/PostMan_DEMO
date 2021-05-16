@@ -24,8 +24,10 @@ List<Payments_ORM> findByBenAccountAndBenName(String benAccount,String benName);
 List<Payments_ORM> findByBenAccountOrBenName(String benAccount,String benName);
 
 
-@Query("from Payments_ORM where ben_name IN :benNames")
-List<Payments_ORM> getByBenNameIn (List<String> benNames);
+//@Query("from Payments_ORM where ben_name IN :benNames")
+//List<Payments_ORM> getByBenNameIn (List<String> benNames);
+
+List<Payments_ORM> findByBenNameIn (List<String> benNames);
 
 @Query("from Payments_ORM where ben_name=:benName and ben_Account= :benAccount" )
 List<Payments_ORM> getByBenAccountAndBenName(String benAccount,String benName);

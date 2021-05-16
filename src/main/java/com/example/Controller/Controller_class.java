@@ -26,12 +26,15 @@ import com.example.request_POST.CreatePaymentDetails;
 import com.example.request_POST.InClause;
 import com.example.request_POST.UpdatePayment;
 import com.example.service.Payments_Service;
+import org.slf4j.*;
 
 @RestController
 @RequestMapping("/api/student/")
 
 
 public class Controller_class {
+	
+	Logger logger = LoggerFactory.getLogger(Controller_class.class);
 	
 	//@Value("${app.name:SHIVANGI}")//can use  @value--> app.name is define in application.properties with value
 	//@Value("${app.name:HI SHIVANGI}")	//can use --> can give value to app.name in @value itself
@@ -154,16 +157,17 @@ public class Controller_class {
 		return responseList;
    }
    
-   @GetMapping("GetWithINClause")
+   @GetMapping("getWithINClause")
    public List<Payments_response> getWithINClause(@RequestBody InClause   inClause)
    {
+	   logger.info("inQueryRequest = " + inClause);
 	   List<Payments_ORM> list = payments_services.getWithINClause(inClause);
 	   List<Payments_response> responseList = new ArrayList<Payments_response>();
 		
 	   list.stream().forEach(Payments_ORM -> {
 		   responseList.add(new Payments_response(Payments_ORM));
 		});
-		
+	   logger.info("studentResponseList = " + responseList);
 		return responseList;
    }
    
