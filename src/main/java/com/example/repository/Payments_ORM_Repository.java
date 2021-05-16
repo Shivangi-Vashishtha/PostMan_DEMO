@@ -22,7 +22,7 @@ public interface Payments_ORM_Repository extends JpaRepository<Payments_ORM, Lon
 List<Payments_ORM> findByBenAccount(String benAccount);
 List<Payments_ORM> findByBenAccountAndBenName(String benAccount,String benName);
 List<Payments_ORM> findByBenAccountOrBenName(String benAccount,String benName);
-List<Payments_ORM> findByBenNameIn (List<String> benNames);
+List<Payments_ORM> findByBenNameIn(List<String> benNames);
 
 @Query("from Payments_ORM where ben_name=:benName and ben_Account= :benAccount" )
 List<Payments_ORM> getByBenAccountAndBenName(String benAccount,String benName);
